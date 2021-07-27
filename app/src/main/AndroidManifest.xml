@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:name=".AppClass"
         android:theme="@style/Theme.WalmartSample">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.details.DetailsActivity" />
+        <activity android:name=".ui.listing.ListingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

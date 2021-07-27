@@ -1,4 +1,6 @@
 package com.walmartsample
 
-class AppClass {
+import android.app.Application
+
+class AppClass : Application() {
 }

@@ -5,4 +5,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
+
+    private val viewModel by viewModels<DetailsViewModel>()
+
 }

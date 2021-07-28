@@ -45,7 +45,7 @@ class DetailsActivity : AppCompatActivity() {
             when (result.status) {
                 Result.Status.SUCCESS -> {
                     result.data?.let {
-                        //updateUi(it)
+                        updateUi(it)
                     }
                     loading.visibility = View.GONE
                 }

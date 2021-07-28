@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.walmartsample.R
+import com.walmartsample.model.Result
 import com.walmartsample.model.Movie
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.activity_details.loading
+import kotlinx.android.synthetic.main.activity_details.vParent
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 /**

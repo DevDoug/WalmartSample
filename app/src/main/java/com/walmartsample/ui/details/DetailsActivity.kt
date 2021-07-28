@@ -5,7 +5,10 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
+import com.walmartsample.Config
 import com.walmartsample.R
 import dagger.hilt.android.AndroidEntryPoint
 import io.buildwithnd.demotmdb.model.MovieDesc
@@ -29,6 +32,12 @@ class DetailsActivity : AppCompatActivity() {
             subscribeUi()
         } ?: showError("Unknown Movie")
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
 
     private fun subscribeUi() {
         viewModel.movie.observe(this, Observer { result ->
@@ -58,6 +67,20 @@ class DetailsActivity : AppCompatActivity() {
     private fun showError(msg: String) {
         Snackbar.make(vParent, msg, Snackbar.LENGTH_INDEFINITE).setAction("DISMISS") {
         }.show()
+    }
+
+    private fun updateUi(movie: MovieDesc) {
+        title = movie.title
+        tvTitle.text = movie.title
+        tvDescription.text = movie.overview
+        Glide.with(this).load(Config.IMAGE_URL + movie.poster_path)
+            .apply(RequestOptions().override(400, 400).centerInside().placeholder(R.drawable.placehoder)).into(ivCover)
+
+        val genreNames = mutableListOf<String>()
+        movie.genres.map {
+            genreNames.add(it.name)
+        }
+        tvGenre.text = genreNames.joinToString(separator = ", ")
     }
 
     companion object {

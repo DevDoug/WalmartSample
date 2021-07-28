@@ -21,6 +21,13 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        intent?.getIntExtra(EXTRAS_MOVIE_ID, 0)?.let { id ->
+            viewModel.getMovieDetail(id)
+            subscribeUi()
+        } ?: showError("Unknown Movie")
     }
 
     private fun subscribeUi() {

@@ -1,6 +1,5 @@
 package com.walmartsample.di
 
-import com.walmartsample.BuildConfig
 import com.walmartsample.Config
 import com.walmartsample.network.Authintercepter
 import dagger.Module
